@@ -1,0 +1,9 @@
+[
+    {"id":"strings", "name":"Strings"},
+    {"id":"adjacent_comparison", "name":"Adjacent comparison"},
+    {"id":"math_greedy", "name":"Math greedy"},
+    {"id":"ceiling_division", "name":"Ceiling division"},
+    {"id":"two_pointers", "name":"Two pointers"},
+    {"id":"prefix_sum", "name":"Prefix sums"},
+    {"id":"greedy_sorting", "name":"Greedy + sorting"}
+]
