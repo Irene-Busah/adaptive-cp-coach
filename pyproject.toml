@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dev-toolbox"
+version = "0.1.0"
+description = "The Unified Developer CLI Suite"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "typer[all]",
+    "rich",
+    "fastapi",
+    "uvicorn",
+    "requests",
+    "httpx"
+]
+
+[project.scripts]
+dev-toolbox = "cli:app"
+
+[tool.setuptools]
+packages = ["commands", "server"]
+py-modules = ["cli"]

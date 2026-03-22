@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: dev-toolbox
+Version: 0.1.0
+Summary: The Unified Developer CLI Suite
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: typer[all]
+Requires-Dist: rich
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: requests
+Requires-Dist: httpx
+
 # 🛠️ DevToolbox
 
 A unified CLI suite of utilities to supercharge your developer workflow!

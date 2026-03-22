@@ -1,0 +1,2 @@
+[console_scripts]
+dev-toolbox = cli:app
