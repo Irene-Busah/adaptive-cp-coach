@@ -78,22 +78,31 @@ $ dev-toolbox hop -
 
 ### 🔁 `replay` — One-Command API Replay
 
-When an API request fails during development, `replay` lets you instantly re-fire it from your terminal — no Postman, no copy-pasting cURL commands.
+When an API request fails in your frontend (e.g. Chrome/Firefox), debugging the backend usually means right-clicking the request, selecting "Copy as cURL", and pasting a massive, ugly command into your terminal.
 
-**Step 1:** Start the background listener daemon (in a separate terminal tab):
+The `replay` tool automates this entirely, acting as a bridge between your browser and your terminal testing environment.
+
+#### How It Works:
+1. **The Daemon:** You run `dev-toolbox start-daemon`. This spins up a tiny background server listening on `http://localhost:9999`.
+2. **The Capture:** A browser extension (or hook in your app) detects when an API call fails and silently forwards that failed request's data to the daemon.
+3. **The Cache:** The daemon catches the payload and saves it locally to `/tmp/dev_toolbox_last_request.json`.
+4. **The Replay:** You run `dev-toolbox replay`. The CLI reads the cache file and natively re-executes the exact HTTP request, formatting and colorizing the JSON response perfectly in your terminal so you can debug the backend!
+
+#### Try It Out Manually
+
+**Step 1:** Start the background listener daemon (leave this running):
 ```bash
 dev-toolbox start-daemon
 ```
-This starts a lightweight local server on `http://localhost:9999` ready to receive request payloads (e.g. from a browser extension).
 
-**Step 2:** Simulate a captured request (or use your browser extension):
+**Step 2:** Simulate a browser extension capturing a request:
 ```bash
 curl -X POST http://127.0.0.1:9999/store-request \
      -H "Content-Type: application/json" \
-     -d '{"method": "GET", "url": "https://api.example.com/data", "headers": {}, "body": {}}'
+     -d '{"method": "GET", "url": "https://jsonplaceholder.typicode.com/todos/1"}'
 ```
 
-**Step 3:** Replay it:
+**Step 3:** Replay it instantly from another terminal:
 ```bash
 dev-toolbox replay
 ```
