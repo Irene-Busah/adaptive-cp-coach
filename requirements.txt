@@ -5,3 +5,4 @@ uvicorn
 requests
 httpx
 pytest
+urllib3<2
