@@ -31,7 +31,7 @@ pip install git+https://github.com/Irene-Busah/dev-toolbox.git
 
 ### For Developers (editable install)
 ```bash
-git clone https://github.com/your-username/dev-toolbox.git
+git clone https://github.com/Irene-Busah/dev-toolbox.git
 cd dev-toolbox
 python3 -m venv venv
 source venv/bin/activate
